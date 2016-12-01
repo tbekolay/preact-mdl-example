@@ -17,14 +17,16 @@
     "build": "webpack --debug --devtool source-map --output-pathinfo",
     "debug": "webpack-dev-server --inline --debug --devtool source-map --output-pathinfo",
     "release": "webpack --optimize-minimize --optimize-occurence-order",
-    "style": "tslint 'src/**/*.ts' && stylelint 'src/**/*.css'"
+    "style:css": "stylelint src/**/*.css",
+    "style:lint": "tslint src/**/*.tsx -c tslint.json",
+    "style": "npm run style:lint && npm run style:css"
   },
   "stylelint": {
     "extends": "stylelint-config-standard"
   },
   "dependencies": {
     "autoprefixer": "^6.5.3",
-    "css-loader": "^0.25.0",
+    "css-loader": "^0.26.0",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.22.0",
     "material-design-icons": "^3.0.1",
@@ -36,8 +38,8 @@
     "preact-router": "^2.3.2",
     "style-loader": "^0.13.1",
     "stylelint": "^7.4.2",
-    "ts-loader": "^0.9.4",
-    "tslint": "^3.15.1",
+    "ts-loader": "^1.2.2",
+    "tslint": "^4.0.2",
     "typescript": "^2.0.3",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
