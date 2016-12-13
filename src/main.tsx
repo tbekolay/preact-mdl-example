@@ -15,16 +15,35 @@ const React = { createElement: h };
 
 // Our top-level component.
 class App extends Component<{}, {}> {
+    layout;
+
+    get isSmallScreen(): boolean {
+        return this.layout.base.classList.contains("is-small-screen");
+    }
+
+    get hasFixedDrawer(): boolean {
+        return this.layout.base.classList.contains("mdl-layout--fixed-drawer");
+    }
+
     handleFab = () => {
         alert("You clicked New!");
-    };
+    }
+
+    toggleDrawer = () => {
+        if (this.hasFixedDrawer && !this.isSmallScreen) {
+            return;
+        }
+        this.layout.base.MaterialLayout.toggleDrawer();
+    }
 
     render() {
         return (
             <div id="app">
-                <Layout fixed-header fixed-drawer>
-                    <Header onSearch={() => { return; } } />
-                    <Sidebar />
+                <Layout fixed-header
+                        fixed-drawer
+                        ref={(input) => { this.layout = input; }}>
+                    <Header onSearch={() => { return; }} />
+                    <Sidebar onDrawerClick={this.toggleDrawer} />
 
                     <Button id="fab" fab colored onClick={this.handleFab}>
                         <Icon icon="create" />
@@ -55,23 +74,19 @@ const Header = ({ onSearch }) => (
                 type="search"
                 onSearch={onSearch}
                 style="background-color:#FFF; color:#000; padding:10px;"
-            />
+                />
         </Layout.HeaderRow>
     </Layout.Header>
 );
 
-class Sidebar extends Component<{}, {}> {
+class Sidebar extends Component<{ onDrawerClick }, {}> {
     shouldComponentUpdate() {
         return false;
     }
 
-    hide = () => {
-        this.base.classList.remove("is-visible");
-    };
-
-    render() {
+    render({ onDrawerClick }) {
         return (
-            <Layout.Drawer onClick={this.hide}>
+            <Layout.Drawer onClick={onDrawerClick}>
                 <Layout.Title>Example App</Layout.Title>
                 <Navigation>
                     <Navigation.Link href="/">Home</Navigation.Link>
@@ -111,7 +126,7 @@ class Home extends Component<RouterProps, {}> {
     }
 }
 
-class Profile extends Component<{id} & RouterProps, {}> {
+class Profile extends Component<{ id } & RouterProps, {}> {
     shouldComponentUpdate({id}) {
         return id !== this.props.id;
     }
