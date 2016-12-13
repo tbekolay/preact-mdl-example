@@ -1,49 +1,53 @@
-html, body {
-    background: #E0E4E9;
+html,
+body {
+  background: #e0e4e9;
 }
 
 #app header {
-    background: #EEE;
-    * {
-        color: #555;
-    }
-    a {
-	margin-left: -20px;
-	text-decoration: none;
-    }
+  background: #eee;
+
+  * {
+    color: #555;
+  }
+
+  a {
+    margin-left: -20px;
+    text-decoration: none;
+  }
 }
 
 #fab {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    z-index: 999;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 999;
 }
 
 #app {
-    position: static;
-    overflow: visible;
+  position: static;
+  overflow: visible;
 }
 
 .mdl-card {
-    display: block;
-    text-align: left;
-    margin: 20px;
-    padding: 0 0 10px;
-    width: auto;
+  display: block;
+  text-align: left;
+  margin: 20px;
+  padding: 0 0 10px;
+  width: auto;
 }
 
 .mdl-card__title.graphic {
-    height: 100px;
-    background: url(https://lh3.googleusercontent.com/-WiwrPHajH08/VTpzIfl09SI/AAAAAAAA4S4/062nOW9T-I4/s630-fcrop64=1,00002f44ffffc017/material-design-wallpaper-1.png) center/cover;
-    .mdl-card__title-text {
-        color: #FFF;
-        font-size: 300%;
-        text-shadow: 0 0 1px #000, 0 0 5px rgba(0,0,0,0.3);
-    }
+  height: 100px;
+  background: url(https://lh3.googleusercontent.com/-WiwrPHajH08/VTpzIfl09SI/AAAAAAAA4S4/062nOW9T-I4/s630-fcrop64=1,00002f44ffffc017/material-design-wallpaper-1.png) center/cover;
+
+  .mdl-card__title-text {
+    color: #fff;
+    font-size: 300%;
+    text-shadow: 0 0 1px #000, 0 0 5px rgba(0, 0, 0, 0.3);
+  }
 }
 
 .mdl-card__supporting-text,
 .mdl-card__supporting-text > p {
-    font-size: 16px;
+  font-size: 16px;
 }

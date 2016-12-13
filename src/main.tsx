@@ -6,8 +6,9 @@ import "material-design-lite";
 import "material-design-lite/dist/material.indigo-pink.min.css";
 
 import { Component, h, render } from "preact";
-import { Layout, Navigation, Card, Button, Icon, TextField } from "preact-mdl";
+import { Button, Card, Icon, Layout, Navigation, TextField } from "preact-mdl";
 import { Router } from "preact-router";
+
 import "./main.css";
 
 const React = { createElement: h };
@@ -15,7 +16,7 @@ const React = { createElement: h };
 // Our top-level component.
 class App extends Component<{}, {}> {
     handleFab = () => {
-        alert('You clicked New!');
+        alert("You clicked New!");
     };
 
     render() {
@@ -59,14 +60,13 @@ const Header = ({ onSearch }) => (
     </Layout.Header>
 );
 
-
 class Sidebar extends Component<{}, {}> {
     shouldComponentUpdate() {
         return false;
     }
 
     hide = () => {
-        this.base.classList.remove('is-visible');
+        this.base.classList.remove("is-visible");
     };
 
     render() {
