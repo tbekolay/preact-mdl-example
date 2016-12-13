@@ -43,3 +43,8 @@ License
 ----
 
 MIT
+
+Thanks
+----
+
+Thanks to [@seveves](https://github.com/seveves) for contributing!
